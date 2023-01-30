@@ -2,12 +2,11 @@ package com.abeer.workoutapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.abeer.workoutapp.database.AppDatabase;
-import com.abeer.workoutapp.databinding.ActivityLoginBinding;
-import com.abeer.workoutapp.databinding.ActivitySignupBinding;
 import com.abeer.workoutapp.databinding.ActivityUserInfoBinding;
 import com.abeer.workoutapp.model.User;
 
@@ -38,5 +37,7 @@ public class UserInfoActivity extends AppCompatActivity {
         user.setHeight(viewsId.ageEdit.getText().toString());
         user.setWeight(viewsId.ageEdit.getText().toString());
         AppDatabase.dbUtils(this).insertAll(user);
+        startActivity(new Intent(this, ExercisesActivity.class));
+        finish();
     }
 }
