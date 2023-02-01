@@ -50,7 +50,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:hint="Password"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:maxLines="1"
             android:singleLine="true"/>
 

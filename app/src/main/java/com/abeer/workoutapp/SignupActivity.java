@@ -42,7 +42,7 @@ public class SignupActivity extends AppCompatActivity {
     private void signup(){
         User user = new User(
                 viewsId.nameEdit.getText().toString(),
-                viewsId.emailEdit.getText().toString(),
+                viewsId.emailEdit.getText().toString().toLowerCase(),
                 viewsId.passEdit.getText().toString()
         );
         /*User user = new User(

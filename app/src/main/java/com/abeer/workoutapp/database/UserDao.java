@@ -18,7 +18,7 @@ public interface UserDao {
     @Query("SELECT * FROM user WHERE uid = (:userId)")
     User loadAllByIds(int userId);
 
-    @Query("SELECT * FROM user WHERE name LIKE :email")
+    @Query("SELECT * FROM user WHERE email = (:email)")
     User find(String email);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

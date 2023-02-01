@@ -27,7 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         viewsId.btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login("hi", "hii");
+
+                login(viewsId.emailEdit.getText().toString(), viewsId.passEdit.getText().toString());
             }
         });
         viewsId.goToRegBtn.setOnClickListener(new View.OnClickListener() {
@@ -41,15 +42,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login(String email, String pass){
-        User user = AppDatabase.dbUtils(this).find(email);
+        Log.i("myemail", email.toLowerCase());
+        User user = AppDatabase.dbUtils(this).find(email.toLowerCase());
+
         try {
             if (pass.equals(user.getPass())){
                 Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ExercisesActivity.class));
+                finish();
             } else {
-                Toast.makeText(this, "Wrong email or password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Wrong email or password2", Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e){
-            Toast.makeText(this, "Wrong email or password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Wrong email or password1", Toast.LENGTH_SHORT).show();
+            Log.i("myemail", e.getMessage());
         }
     }
 }
