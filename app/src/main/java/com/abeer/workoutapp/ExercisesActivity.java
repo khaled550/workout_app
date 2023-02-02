@@ -73,5 +73,19 @@ public class ExercisesActivity extends AppCompatActivity {
             }
         }));
 
+        viewsId.contactBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ExercisesActivity.this, ContactActivity.class));
+            }
+        });
+
+        viewsId.aboutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ExercisesActivity.this, AboutActivity.class));
+            }
+        });
+
     }
 }

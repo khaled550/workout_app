@@ -2,7 +2,9 @@ package com.abeer.workoutapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +25,17 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         viewsId = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(viewsId.getRoot());
+
+        SharedPreferences sharedpreferences = getSharedPreferences("SharedPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+
+        int appLaunch = sharedpreferences.getInt("app", 0);
+        editor.putInt("app", appLaunch+1);
+        editor.apply();
+
+        if (appLaunch == 1) {
+            finish();
+        }
 
         viewsId.btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
